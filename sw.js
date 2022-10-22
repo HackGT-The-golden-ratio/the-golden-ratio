@@ -16,5 +16,5 @@ self.addEventListener('push', function(event) {
             }
         ]
     };
-    event.waitUntil(self.ServiceWorkerRegistration.showNotification('Hello world!', otopins));
+    event.waitUntil(self.ServiceWorkerRegistration.showNotification('Hello world!', options));
 });
