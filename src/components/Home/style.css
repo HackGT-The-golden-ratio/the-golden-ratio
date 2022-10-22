@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    top: 0px;
+    left: 0px;
+}
+
+h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 121px;
+    text-align: center;
+    color: #4A464F;
+    margin-bottom: 40px;
+}
+
+.section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../assets/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.top-right {
+    position: absolute;
+    width: 700px;
+    height: 633.5px;
+    left: 1639.24px;
+    top: -322px;
+    background-image: url("../../assets/Vector.png");
+    background-size: contain;
+}
+
+.top-left{
+    background-image: url("../../assets/top-logo.png");
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 100px;
+    left: 90px;
+    top: 48px;
+}
+
+.text-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bottom-right {
+    background-image: url("../../assets/Ellipse 2.png");
+    background-size: contain;
+    position: absolute;
+    width: 207px;
+    height: 207px;
+    left: 1670px;
+    top: 900px;
+}
+
+.start-btn {
+    width: 327px;
+    height: 88px;
+    border-radius: 300px;
+    border: 0px;
+    background: #4A474F;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    color: white;
+    transition: 300ms;
+}
+
+.start-btn:hover {
+    width: 327px;
+    height: 88px;
+    border-radius: 300px;
+    border: 5px solid #4A474F;
+    background: #F7F3F2;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    color: #4A474F;
+    cursor: pointer;
+}
