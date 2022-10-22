@@ -16,5 +16,5 @@ self.addEventListener('push', function(event) {
             }
         ]
     };
-    event.waitUntil(self.registration.showNotification('Hello world!', options));
+    event.waitUntil(self.registration.showNotification('User Missing!', options));
 });
