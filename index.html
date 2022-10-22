@@ -8,12 +8,14 @@
 </head>
 <body>
   <div>Teachable Machine Pose Model</div>
+  <button id="enable">Enable notifications</button>
 <button type="button" onclick="init()">Start</button>
 <div><canvas id="canvas"></canvas></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
 <script type="text/javascript">
+
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
@@ -24,7 +26,18 @@
     async function init() {
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
+        
+        notificationBtn.addEventListener('click', askNotificationPermission);
+        //Notification.requestPermission().then((result) => {
+        //    if (result === "granted") {
+        //        alert('permission granted')
+        //    }
+        //});
 
+        addEventListener('load', async () => {
+            let sw = await navigator.serviceWorker.register('./sw.js')
+            console.log(sw)
+        })
         // load the model and metadata
         // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
         // Note: the pose library adds a tmPose object to your window (window.tmPose)
@@ -33,7 +46,7 @@
 
         // Convenience function to setup a webcam
         const width = 1080;
-        const height = 720;
+        const height = 1080;
         // const size = 200;
         const flip = true; // whether to flip the webcam
         webcam = new tmPose.Webcam(width, height, flip); // width, height, flip
@@ -75,9 +88,20 @@
 
         if (pose == undefined) {
           console.log("Face is not detected");
+          new Notification('User left the screen')
         } else {
           console.log("Face detected");
         }
+
+
+    }
+
+    async function subscribe() {
+        let sw = await navigator.serviceWorker.ready;
+        let push = await sw.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: 'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w'
+        })
     }
 
     function drawPose(pose) {
@@ -91,6 +115,40 @@
             }
         }
     }
+
+    function createNotification() {
+        // Create and show the notification
+        const text = `HEY! You are out of the screen.`;
+        const notification = new Notification('To do list', { body: text});
+    }
+  
+    function askNotificationPermission() {
+        // Function to actually ask the permissions
+        function handlePermission(permission) {
+            // Whatever the user answers, we make sure Chrome stores the information
+            if (!Reflect.has(Notification, 'permission')) {
+                Notification.permission = permission;
+            }
+
+            // Set the button to shown or hidden, depending on what the user answers
+            if (Notification.permission === 'denied' || Notification.permission === 'default') {
+                notificationBtn.style.display = 'block';
+            } else {
+                notificationBtn.style.display = 'none';
+            }
+        };
+
+        // Check if the browser supports notifications
+        if (!Reflect.has(window, 'Notification')) {
+        console.log('This browser does not support notifications.');
+        } else {
+        if (checkNotificationPromise()) {
+            Notification.requestPermission().then(handlePermission);
+        } else {
+            Notification.requestPermission(handlePermission);
+        }
+        }
+    };
 </script>
 
 </body>
