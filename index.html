@@ -100,8 +100,10 @@
         let sw = await navigator.serviceWorker.ready;
         let push = await sw.pushManager.subscribe({
             userVisibleOnly: true,
-            applicationServerKey: 'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w'
+            applicationServerKey: 
+                'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w'
         })
+        console.log(JSON.stringify(push))
     }
 
     function drawPose(pose) {
