@@ -14,7 +14,7 @@
 
     var date1 = new Date();
 
-    async function init() {
+    export async function init() {
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
