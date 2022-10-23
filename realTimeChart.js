@@ -4,7 +4,7 @@ function realTimeChart() {
       datum, initialData, data,
       maxSeconds = 300, pixelsPerSecond = 10,
       svgWidth = 700, svgHeight = 600,
-      margin = { top: 20, bottom: 20, left: 50, right: 30, topNav: 10, bottomNav: 20 },
+      margin = { top: 0, bottom: 20, left: 0, right: 0, topNav: 10, bottomNav: 20 },
       dimension = { chartTitle: 20, xAxis: 20, yAxis: 20, xTitle: 20, yTitle: 20, navChart: 70 },
       barWidth = 3,
       maxY = 100, minY = 0,
@@ -65,14 +65,6 @@ function realTimeChart() {
         .attr("width", width)
         .attr("height", height);
 
-    // create chart background
-    main.append("rect")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", width)
-        .attr("height", height)
-        .style("fill", "#f5f5f5");
-
     // note that two groups are created here, the latter assigned to barG;
     // the former will contain a clip path to constrain objects to the chart area; 
     // no equivalent clip path is created for the nav chart as the data itself
@@ -93,15 +85,15 @@ function realTimeChart() {
         .attr("class", "y axis");
 
     // in x axis group, add x axis title
-    xAxisG.append("text")
-        .attr("class", "title")
-        .attr("x", width / 2)
-        .attr("y", 25)
-        .attr("dy", ".71em")
-        .text(function(d) { 
-          var text = xTitle == undefined ? "" : xTitle;
-          return text; 
-        });
+    // xAxisG.append("text")
+    //     .attr("class", "title")
+    //     .attr("x", width / 2)
+    //     .attr("y", 25)
+    //     .attr("dy", ".71em")
+    //     .text(function(d) { 
+    //       var text = xTitle == undefined ? "" : xTitle;
+    //       return text; 
+    //     });
 
     // in y axis group, add y axis title
     // yAxisG.append("text")

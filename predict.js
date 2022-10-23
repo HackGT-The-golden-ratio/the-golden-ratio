@@ -145,9 +145,9 @@
   }
 
   function alertUser() {
-      audio.play();
-      alert('Please seat upright!');
-      date1 = new Date();
+      // audio.play();
+      // alert('Please seat upright!');
+      // date1 = new Date();
   }
 
   function diff_minutes(dt2, dt1) {

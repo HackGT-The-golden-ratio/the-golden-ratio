@@ -11,9 +11,9 @@ var valueScale = d3.scale.linear()
 // create the real time chart
 var chart = realTimeChart()
     .title("Chart Title")
-    .yTitle("Y Scale")
-    .xTitle("X Scale")
-    .border(true)
+    // .yTitle("Y Scale")
+    // .xTitle("X Scale")
+    .border(false)
     .width(600)
     .height(300)
     .barWidth(10)
@@ -23,4 +23,3 @@ var chart = realTimeChart()
 var chartDiv = d3.select("#viewDiv").append("div")
     .attr("id", "chartDiv")
     .call(chart);
-
