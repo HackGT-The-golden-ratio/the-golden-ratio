@@ -6,11 +6,6 @@
 
     var audio = new Audio('glass.wav');
 
-    addEventListener('load', async () => {
-      let sw = await navigator.serviceWorker.register('./sw.js')
-      console.log(sw)
-    })
-
     var date1 = new Date();
 
     async function init(){
@@ -45,6 +40,7 @@
     }
 
     window.init = init
+
     async function loop(timestamp) {
         webcam.update(); // update the webcam frame
         await predict();
@@ -135,7 +131,9 @@
               'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w'
       })
       console.log(JSON.stringify(push))
-  }
+    }
+
+    window.subscribe = subscribe
 
   function waitforme(milisec) {
     return new Promise(resolve => {

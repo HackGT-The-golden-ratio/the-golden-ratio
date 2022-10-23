@@ -35746,7 +35746,9 @@ module.exports = WebPushLib;
               'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w'
       })
       console.log(JSON.stringify(push))
-  }
+    }
+
+    window.subscribe = subscribe
 
   function waitforme(milisec) {
     return new Promise(resolve => {
