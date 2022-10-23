@@ -1,6 +1,6 @@
 self.addEventListener('push', function(event) {
     var options = {
-        body: 'This notification was generated from a push!',
+        body: 'You have been slouching for a while. Time to correct your posture.',
         vibrate: [100, 50, 100],
         data: {
             dataOfArrival: Date.now(),
@@ -16,5 +16,5 @@ self.addEventListener('push', function(event) {
             }
         ]
     };
-    event.waitUntil(self.registration.showNotification('User Missing!', options));
+    event.waitUntil(self.registration.showNotification('Seat up straight!', options));
 });

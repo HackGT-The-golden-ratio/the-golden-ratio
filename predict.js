@@ -143,7 +143,6 @@
 
   function alertUser() {
       audio.play();
-      alert('Please seat upright!');
       pushNot();
       date1 = new Date();
   }
