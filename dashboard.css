@@ -213,6 +213,11 @@ h1 {
 
 }
 
+.hour {
+    font-size: 26px;
+    color: rgb(186, 186, 186);
+}
+
 .forward_h {
     color: rgb(0, 195, 255);
 }

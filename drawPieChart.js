@@ -1,7 +1,7 @@
 var population = [
-  {name: "Upright", value: 8},
-  {name: "Forward", value: 1},
-  {name: "Crook", value: 2}
+  {name: "Upright", value: 3.3},
+  {name: "Forward", value: 1.3},
+  {name: "Crook", value: 0.9}
 ]
 
 var chart = PieChart(population, {
