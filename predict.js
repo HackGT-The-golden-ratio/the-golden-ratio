@@ -8,6 +8,11 @@
 
     var date1 = new Date();
 
+    addEventListener('load', async () => {
+      let sw = await navigator.serviceWorker.register('./sw.js')
+      console.log(sw)
+    })
+    
     async function init(){
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
@@ -133,7 +138,6 @@
       console.log(JSON.stringify(push))
     }
 
-    window.subscribe = subscribe
 
   function waitforme(milisec) {
     return new Promise(resolve => {
