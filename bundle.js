@@ -35759,7 +35759,6 @@ module.exports = WebPushLib;
 
   function alertUser() {
       audio.play();
-      alert('Sit up straight!')
       pushNot();
       date1 = new Date();
   }
