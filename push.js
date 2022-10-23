@@ -1,4 +1,4 @@
-
+function pushNot(){
     const push = require('web-push')
 
     let vapidKeys = {
@@ -17,5 +17,6 @@
     };
 
     push.sendNotification(sub, 'testmessage');
+}
 
 
