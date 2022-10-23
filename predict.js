@@ -25,8 +25,9 @@
         maxPredictions = model.getTotalClasses();
 
         // Convenience function to setup a webcam
-        const width = 720;
-        const height = 720;
+        const width = 486;
+        const height = 380;
+
         // const size = 200;
         const flip = true; // whether to flip the webcam
         webcam = new tmPose.Webcam(width, height, flip); // width, height, flip

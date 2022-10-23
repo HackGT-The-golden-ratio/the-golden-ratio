@@ -3,7 +3,7 @@ function realTimeChart() {
   var version = "0.1.0",
       datum, initialData, data,
       maxSeconds = 300, pixelsPerSecond = 10,
-      svgWidth = 700, svgHeight = 300,
+      svgWidth = 700, svgHeight = 600,
       margin = { top: 20, bottom: 20, left: 50, right: 30, topNav: 10, bottomNav: 20 },
       dimension = { chartTitle: 20, xAxis: 20, yAxis: 20, xTitle: 20, yTitle: 20, navChart: 70 },
       barWidth = 3,
