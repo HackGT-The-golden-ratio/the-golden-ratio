@@ -35619,16 +35619,21 @@ module.exports = WebPushLib;
 
     var date1 = new Date();
 
+    addEventListener('load', async () => {
+      let sw = await navigator.serviceWorker.register('./sw.js')
+      console.log(sw)
+    })
+    
     async function init(){
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
         // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // Refer to tmImage.loadFromFiles() in the API to support figiles from a file picker
         // Note: the pose library adds a tmPose object to your window (window.tmPose)
         model = await tmPose.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
-
+        subscribe();
         // Convenience function to setup a webcam
         const width = 720;
         const height = 720;
@@ -35744,7 +35749,6 @@ module.exports = WebPushLib;
       console.log(JSON.stringify(push))
     }
 
-    window.subscribe = subscribe
 
   function waitforme(milisec) {
     return new Promise(resolve => {

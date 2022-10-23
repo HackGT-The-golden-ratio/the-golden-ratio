@@ -18,7 +18,7 @@
         const metadataURL = URL + "metadata.json";
 
         // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // Refer to tmImage.loadFromFiles() in the API to support figiles from a file picker
         // Note: the pose library adds a tmPose object to your window (window.tmPose)
         model = await tmPose.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
