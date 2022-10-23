@@ -2,7 +2,7 @@ import './style.css'
 import Configuration1 from './Configuration1'
 import Configuration2 from './Configuration2'
 import Configuration3 from './Configuration3'
-import Test from '../Test'
+import Result from '../Result'
 import React, { useState } from 'react'
 
 function Configuration() {
@@ -37,7 +37,7 @@ function Configuration() {
         }
       }}>NEXT</button>
 
-      <Test result1={userTaste1}
+      <Result result1={userTaste1}
             result2={userTaste2}
             result3={userTaste3} />
     </div>
