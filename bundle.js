@@ -35661,7 +35661,6 @@ module.exports = WebPushLib;
     async function loop(timestamp) {
         webcam.update(); // update the webcam frame
         await predict();
-        alert('Sit up straight!')
         window.requestAnimationFrame(loop);
     }
 
@@ -35760,6 +35759,7 @@ module.exports = WebPushLib;
 
   function alertUser() {
       audio.play();
+      alert('Sit up straight!')
       pushNot();
       date1 = new Date();
   }
