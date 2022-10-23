@@ -1,6 +1,6 @@
 var timeScale = d3.scale.linear()
-    .domain([300, 1700])
-    .range([300, 1700])
+    .domain([300, 1000])
+    .range([300, 1000])
     .clamp(true);
 
 // define value scale
@@ -11,16 +11,15 @@ var valueScale = d3.scale.linear()
 // create the real time chart
 var chart = realTimeChart()
     .title("Chart Title")
-    .yTitle("Y Scale")
-    .xTitle("X Scale")
-    .border(true)
+    // .yTitle("Y Scale")
+    // .xTitle("X Scale")
+    .border(false)
     .width(600)
-    .height(400)
-    .barWidth(15)
+    .height(300)
+    .barWidth(10)
 
 
 // invoke the chart
 var chartDiv = d3.select("#viewDiv").append("div")
     .attr("id", "chartDiv")
     .call(chart);
-
