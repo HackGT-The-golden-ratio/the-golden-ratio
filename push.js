@@ -1,4 +1,4 @@
-function pushNot(){
+function pushNot() {
     const push = require('web-push')
 
     let vapidKeys = {
@@ -8,11 +8,11 @@ function pushNot(){
 
     push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey, vapidKeys.privateKey)
 
-    let sub={endpoint:"https://fcm.googleapis.com/fcm/send/cxI1_hiKMJw:APA91bF8tM7AgW70TL19yD4DCCN8i4mw8Fg18PK8jdz4KBKAoAeLykYAwZ6HQLyzdV4OOz46ELom8d77S-mxlc9FNPuzTh1wA1ldUkoaHVv9z7PylTqfAfKs8xUxjL1RTNLX4YtDTrIj", 
+    let sub={endpoint:"https://fcm.googleapis.com/fcm/send/eqpcNJEyUvs:APA91bG_ktalnDDWbCk0TSJRaap308BGP72QvgbdAslS2AgUbn0JcE1OYWDftjoU_Kib7zTxT_N8hpWEGY8yCMfpYzrL8iSH2pwVxy6RAxojTBPTMgXGNbOY2qqkKEGYuTqzCusuypCy", 
         expirationTimem: null, 
         keys :{
-            p256dh:"BOieGhRzqWOhCYJeWoPJBFsxdDG1Z0rUAY2lFvN3rO4lw-P7qEe9m2LghCQKeDwCA1JZs4rVUHPp4GvkeToCrFA",
-            auth:"PNUDapHhohMUJqaXpCu32Q"
+            p256dh:"BNi3YfHp7L9epncKdlbKiGRWyuTYxKB4wQD2PvXtYYOTPnReAfoYBe_aRXJlYKiqpkLMMWcqAwFLczHsS40tNPo",
+            auth:"5nrudkPjH_8IrGsEz1WZnw"
         }
     };
 

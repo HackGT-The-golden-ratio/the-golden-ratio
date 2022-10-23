@@ -37,6 +37,9 @@
         console.log(sw)
     })
 
+    var counter = 0;
+
+    var date1 = new Date();
 
     async function init() {
         const modelURL = URL + "model.json";
@@ -60,6 +63,7 @@
         webcam = new tmPose.Webcam(width, height, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
+        date1 = new Date()
         window.requestAnimationFrame(loop);
 
         // append/get elements to the DOM
@@ -84,22 +88,29 @@
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
-
+    
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
-
+        
+        var max_num = Math.max(prediction[0].probability.toFixed(2), prediction[1].probability.toFixed(2), prediction[2].probability.toFixed(2));
+        for (let i = 0; i < maxPredictions; i++) {
+            if (prediction[i].probability.toFixed(2) == max_num){
+                var cur_class = i
+            }
+        }
         // finally draw the poses
         drawPose(pose);
+        var date2 = new Date();
+        time_diff = diff_minutes(date1, date2);
+        if (cur_class == 0){
+            date1 = new Date();
+        }
 
-        if (pose == undefined) {
-            console.log("Face is not detected");
+        if (time_diff > 5){
             alertUser();
-            pushNot();
-        } else {
-            console.log("Face detected");
         }
     }
 
@@ -125,10 +136,23 @@
         }
     }
 
-    function alertUser(){
-        audio.play();
-        alert('User not detected')
+    function waitforme(milisec) {
+        return new Promise(resolve => {
+            setTimeout(() => { resolve('') }, milisec);
+        })
     }
+
+    function alertUser(){
+        date1 = new Date();
+        audio.play();
+        alert('Please seat upright!');
+    }
+
+    function diff_minutes(dt2, dt1) {
+        var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+        return Math.abs(Math.round(diff));
+    }
+
 </script>
 
 </body>
