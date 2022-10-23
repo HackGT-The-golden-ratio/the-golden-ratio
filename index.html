@@ -8,6 +8,9 @@
 </head>
 <body>
   <div>Teachable Machine Pose Model</div>
+  <div id="dialog" title="Basic dialog">
+    <p>Dialog box</p>
+</div>
   <button onclick="subscribe()">Enable notifications</button>
 <button type="button" onclick="init()">Start</button>
 <div><canvas id="canvas"></canvas></div>
@@ -16,6 +19,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
 <script type="text/javascript" src="push.js"></script>
 <script type="text/javascript" src="file.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 
     // More API functions here:
@@ -89,7 +93,8 @@
 
         if (pose == undefined) {
           console.log("Face is not detected");
-          pushNot()
+          var audio = new Audio('glass.wav');
+          audio.play();
         } else {
           console.log("Face detected");
         }
