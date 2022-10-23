@@ -25,6 +25,8 @@
     const URL = "https://teachablemachine.withgoogle.com/models/jPZxS8HQl/";
     let model, webcam, ctx, labelContainer, maxPredictions;
 
+    var audio = new Audio('audio_file.mp3');
+
     addEventListener('load', async () => {
         let sw = await navigator.serviceWorker.register('./sw.js')
         console.log(sw)
@@ -88,10 +90,10 @@
         drawPose(pose);
 
         if (pose == undefined) {
-          console.log("Face is not detected");
-          pushNot()
+            console.log("Face is not detected");
+            alertUser();
         } else {
-          console.log("Face detected");
+            console.log("Face detected");
         }
 
 
@@ -117,6 +119,11 @@
                 tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
             }
         }
+    }
+
+    function alertUser(){
+        audio.play();
+        alert('User not detected')
     }
 </script>
 
