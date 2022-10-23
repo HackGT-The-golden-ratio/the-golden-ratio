@@ -35617,11 +35617,6 @@ module.exports = WebPushLib;
 
     var audio = new Audio('glass.wav');
 
-    addEventListener('load', async () => {
-      let sw = await navigator.serviceWorker.register('./sw.js')
-      console.log(sw)
-    })
-
     var date1 = new Date();
 
     async function init(){
@@ -35656,6 +35651,7 @@ module.exports = WebPushLib;
     }
 
     window.init = init
+
     async function loop(timestamp) {
         webcam.update(); // update the webcam frame
         await predict();
@@ -35778,11 +35774,11 @@ module.exports = WebPushLib;
 
     push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey, vapidKeys.privateKey)
 
-    let sub={endpoint:"https://fcm.googleapis.com/fcm/send/eqpcNJEyUvs:APA91bG_ktalnDDWbCk0TSJRaap308BGP72QvgbdAslS2AgUbn0JcE1OYWDftjoU_Kib7zTxT_N8hpWEGY8yCMfpYzrL8iSH2pwVxy6RAxojTBPTMgXGNbOY2qqkKEGYuTqzCusuypCy", 
+    let sub={endpoint:"https://fcm.googleapis.com/fcm/send/fNdjEUBD_x0:APA91bEiVbWF1d8x3byXSgbenW9NXapuRze1Qp0wPPaBqArQKnqWGd1uWiGY97VuVz9ggxrI22DFdynJPxU4ZPOrBy5ZDgCDm_JRXWbO4_w7se30ecogevF0mogdN3w5XeFia1vI3ZaR", 
         expirationTimem: null, 
         keys :{
-            p256dh:"BNi3YfHp7L9epncKdlbKiGRWyuTYxKB4wQD2PvXtYYOTPnReAfoYBe_aRXJlYKiqpkLMMWcqAwFLczHsS40tNPo",
-            auth:"5nrudkPjH_8IrGsEz1WZnw"
+            p256dh:"BLbUQ8Y7SPsU1-ujVlrzir4PdSbfQKckAd6MguaBiKb5NMV96O-ErGTZdLLqLVkBUFUlxg1D-hJM1ZLioYjVH1Y",
+            auth:"4FUMD7zxZFJVwqeFCBICfQ"
         }
     };
 
