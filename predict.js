@@ -85,7 +85,7 @@
           alertUser();
       }
       number++;
-      if (number % 20 == 0) {
+      if (number % 15 == 0) {
         drawGraph(prediction);
       }
   }
