@@ -15,9 +15,10 @@
 <button type="button" onclick="init()">Start</button>
 <div><canvas id="canvas"></canvas></div>
 <div id="label-container"></div>
+<script>var exports = {};</script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
-<script type="text/javascript" src="push.js"></script>
+<script type="module" src="push.js"></script>
 <script type="text/javascript" src="file.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -29,7 +30,7 @@
     const URL = "https://teachablemachine.withgoogle.com/models/jPZxS8HQl/";
     let model, webcam, ctx, labelContainer, maxPredictions;
 
-    var audio = new Audio('audio_file.mp3');
+    var audio = new Audio('glass.wav');
 
     addEventListener('load', async () => {
         let sw = await navigator.serviceWorker.register('./sw.js')
@@ -96,11 +97,10 @@
         if (pose == undefined) {
             console.log("Face is not detected");
             alertUser();
+            pushNot();
         } else {
             console.log("Face detected");
         }
-
-
     }
 
     async function subscribe() {
