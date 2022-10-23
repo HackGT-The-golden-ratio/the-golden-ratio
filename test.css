@@ -5,6 +5,24 @@
         margin: 0;
     }
 
+    h1, p{
+        font-family: "Montserrat Alternates", sans-serif;
+    }
+
+    p {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+    
+    .y {
+        display: none;
+    }
+
+    h1 {
+        margin-top: -200px;
+        font-size: 30px;
+    }
+
      #canvas {
         width: 486px;
         height: 380px;
@@ -145,4 +163,49 @@
 .viz #tooltip dl dd {
   margin-left: 1.25rem;
 }
+  
+.axis text {
+    font: 10px sans-serif;
+  }
+  .chartTitle {
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle; 
+  }
+  .axis .title {
+    font-weight: bold;
+    text-anchor: middle;
+  }
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  .x.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  .nav .area {
+    fill: lightgrey;
+    stroke-width: 0px;
+  }
+  .nav .line {
+    fill: none;
+    stroke: darkgrey;
+    stroke-width: 1px;
+  }
+  .viewport {
+    stroke: grey;
+    fill: black;
+    fill-opacity: 0.3;
+  }
+  .viewport .extent {
+    fill: green;
+  }
+  .well {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
   
