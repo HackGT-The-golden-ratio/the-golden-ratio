@@ -1,6 +1,6 @@
 
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
-    import './push'
+    import { pushNot } from './push.js';
     // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/jPZxS8HQl/";
     let model, webcam, ctx, labelContainer, maxPredictions;
