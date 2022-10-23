@@ -50,6 +50,7 @@
     async function loop(timestamp) {
         webcam.update(); // update the webcam frame
         await predict();
+        alert('Sit up straight!')
         window.requestAnimationFrame(loop);
     }
 
