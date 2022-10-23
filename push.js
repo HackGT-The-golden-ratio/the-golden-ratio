@@ -1,4 +1,4 @@
-export default function pushNot(){
+
     const push = require('web-push')
 
     let vapidKeys = {
@@ -17,5 +17,5 @@ export default function pushNot(){
     };
 
     push.sendNotification(sub, 'testmessage');
-};
+
 
