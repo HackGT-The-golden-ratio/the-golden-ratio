@@ -16,5 +16,5 @@ self.addEventListener('push', function(event) {
             }
         ]
     };
-    event.waitUntil(self.registration.showNotification('Seat up straight!', options));
+    event.waitUntil(self.registration.showNotification('Sit up straight!', options));
 });
