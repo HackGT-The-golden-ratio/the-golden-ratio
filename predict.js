@@ -17,7 +17,7 @@
         // Note: the pose library adds a tmPose object to your window (window.tmPose)
         model = await tmPose.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
-
+        subscribe();
         // Convenience function to setup a webcam
         const width = 720;
         const height = 720;
