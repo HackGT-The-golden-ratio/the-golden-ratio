@@ -1,6 +1,6 @@
 
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
-
+    import './push'
     // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/jPZxS8HQl/";
     let model, webcam, ctx, labelContainer, maxPredictions;
@@ -146,6 +146,7 @@
   function alertUser() {
       audio.play();
       alert('Please seat upright!');
+      pushNot();
       date1 = new Date();
   }
 
