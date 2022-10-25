@@ -1,29 +1,28 @@
 
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
-
     // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/jPZxS8HQl/";
     let model, webcam, ctx, labelContainer, maxPredictions;
 
     var audio = new Audio('glass.wav');
 
+    var date1 = new Date();
+
     addEventListener('load', async () => {
       let sw = await navigator.serviceWorker.register('./sw.js')
       console.log(sw)
     })
-
-    var date1 = new Date();
-
-    async function init() {
+    
+    async function init(){
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
         // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // Refer to tmImage.loadFromFiles() in the API to support figiles from a file picker
         // Note: the pose library adds a tmPose object to your window (window.tmPose)
         model = await tmPose.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
-
+        subscribe();
         // Convenience function to setup a webcam
         const width = 486;
         const height = 380;
@@ -45,6 +44,8 @@
             labelContainer.appendChild(document.createElement("div"));
         }
     }
+
+    window.init = init
 
     async function loop(timestamp) {
         webcam.update(); // update the webcam frame
@@ -136,7 +137,8 @@
               'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w'
       })
       console.log(JSON.stringify(push))
-  }
+    }
+
 
   function waitforme(milisec) {
     return new Promise(resolve => {
@@ -145,12 +147,33 @@
   }
 
   function alertUser() {
-      // audio.play();
-      // alert('Please seat upright!');
-      // date1 = new Date();
+      audio.play();
+      pushNot();
+      date1 = new Date();
   }
 
   function diff_minutes(dt2, dt1) {
       var diff =(dt2.getTime() - dt1.getTime()) / 1000;
       return Math.abs(Math.round(diff));
   }
+
+  function pushNot() {
+    const push = require('web-push')
+
+    let vapidKeys = {
+        publicKey: 'BLcRzm0Z2FDmsCUX2H_rCo2B2bT9urwLaTcIRFimO3JvuKSn7GEOq-M6IUHv9H7CD-ErH6HH3y89Un0KV-CzV_w',
+        privateKey: 'yrYizttKpc5-cBnjdlsod8fZjBDSiy-FK_L3xqx-_64'
+    };
+
+    push.setVapidDetails('mailto:test@code.co.uk', vapidKeys.publicKey, vapidKeys.privateKey)
+
+    let sub={endpoint:"https://fcm.googleapis.com/fcm/send/cT-kHgEVU_Q:APA91bHLmT2-Cj16o4LWdCamwlkddl5p5EIsnCSoX9V72-r8sZxtPtobGpiyRRhnaNMStyWrwOd_3fmb9eEY3iq7hER5MgFb9liZwWQtYvWNYPmMCxxX32RqtVJStf4AzErPPNI5013D", 
+        expirationTimem: null, 
+        keys :{
+            p256dh:"BJGilAp4CdmYejKMglAk5CaL2TPVpBkzvUNndfqqpUuzYFfDxHOsnR0DjN5InKNsaSBEL8JQebIHgyRajmV8omg",
+            auth:"dgxj6WFohCOtiZPijI6_iA"
+        }
+    };
+
+    push.sendNotification(sub, 'testmessage');
+  };
